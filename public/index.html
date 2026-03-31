@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>V4 Intelligence â InteligÃªncia de Mercado PrÃ©-ReuniÃ£o</title>
+<title>V4 Intelligence — Inteligência de Mercado Pré-Reunião</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -34,12 +34,12 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.6;min-height:100vh}
 a{color:inherit;text-decoration:none}
 
-/* ââ SCROLLBAR ââ */
+/* ── SCROLLBAR ── */
 ::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-track{background:var(--bg2)}
 ::-webkit-scrollbar-thumb{background:var(--card2);border-radius:3px}
 
-/* ââ HEADER ââ */
+/* ── HEADER ── */
 .hdr{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between}
 .hdr-logo{font-family:var(--font-title);font-weight:800;font-size:18px;letter-spacing:-0.3px;display:flex;align-items:center;gap:8px}
 .hdr-logo span{color:var(--red)}
@@ -50,13 +50,13 @@ a{color:inherit;text-decoration:none}
 .hdr-company{font-family:var(--font-title);font-weight:700;font-size:14px}
 .hdr-segment{font-family:var(--font-mono);font-size:11px;color:var(--text3);letter-spacing:.5px}
 
-/* ââ SCREENS ââ */
+/* ── SCREENS ── */
 .screen{display:none;padding-top:56px;min-height:100vh}
 .screen.active{display:block}
 
-/* ââââââââââââââââââââââââââââââââââââââ
-   SCREEN 1 â INPUT
-ââââââââââââââââââââââââââââââââââââââ */
+/* ══════════════════════════════════════
+   SCREEN 1 — INPUT
+══════════════════════════════════════ */
 .hero{padding:80px 32px 48px;max-width:740px;margin:0 auto;text-align:center}
 .hero-eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;color:var(--red);text-transform:uppercase;margin-bottom:20px}
 .hero h1{font-family:var(--font-title);font-weight:800;font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-2px;margin-bottom:16px}
@@ -87,9 +87,9 @@ a{color:inherit;text-decoration:none}
 .strip-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.5px;color:var(--text3);text-transform:uppercase}
 @media(max-width:500px){.strip{flex-wrap:wrap}.strip-item{flex:50%;border-right:none;border-bottom:1px solid var(--border)}}
 
-/* ââââââââââââââââââââââââââââââââââââââ
-   SCREEN 2 â LOADING
-ââââââââââââââââââââââââââââââââââââââ */
+/* ══════════════════════════════════════
+   SCREEN 2 — LOADING
+══════════════════════════════════════ */
 .loading-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - 56px);padding:40px 24px}
 .loading-logo{font-family:var(--font-title);font-weight:800;font-size:32px;letter-spacing:-1px;margin-bottom:48px;animation:pulse-logo 2s ease-in-out infinite}
 .loading-logo span{color:var(--red)}
@@ -108,9 +108,9 @@ a{color:inherit;text-decoration:none}
 .step.done .step-dot{background:var(--green)}
 .step.done .step-label{color:var(--text2)}
 
-/* ââââââââââââââââââââââââââââââââââââââ
-   SCREEN 3 â RELATÃRIO
-ââââââââââââââââââââââââââââââââââââââ */
+/* ══════════════════════════════════════
+   SCREEN 3 — RELATÓRIO
+══════════════════════════════════════ */
 .rpt-header{background:var(--card);border-bottom:1px solid var(--border);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .rpt-company{font-family:var(--font-title);font-weight:800;font-size:22px;letter-spacing:-0.5px}
 .rpt-segment{font-family:var(--font-mono);font-size:12px;color:var(--text3);margin-top:2px;letter-spacing:.5px}
@@ -256,7 +256,7 @@ a{color:inherit;text-decoration:none}
 </head>
 <body>
 
-<!-- ââââââââââââââââââââ HEADER ââââââââââââââââââââ -->
+<!-- ════════════════════ HEADER ════════════════════ -->
 <header class="hdr" id="hdr">
   <div class="hdr-logo">
     <span class="hdr-dot"></span>
@@ -267,12 +267,12 @@ a{color:inherit;text-decoration:none}
   </div>
 </header>
 
-<!-- ââââââââââââââââââââ SCREEN 1 â INPUT ââââââââââââââââââââ -->
+<!-- ════════════════════ SCREEN 1 — INPUT ════════════════════ -->
 <div id="screen-input" class="screen active">
   <div class="hero">
-    <div class="hero-eyebrow">V4 Company Â· Intelligence Suite</div>
-    <h1>MuniÃ§Ã£o para sua<br/><em>reuniÃ£o.</em></h1>
-    <p>Cole o diagnÃ³stico SPICED do seu prospect + URL do site e receba um relatÃ³rio completo de inteligÃªncia de mercado com 12 seÃ§Ãµes estratÃ©gicas, pronto em segundos.</p>
+    <div class="hero-eyebrow">V4 Company · Intelligence Suite</div>
+    <h1>Munição para sua<br/><em>reunião.</em></h1>
+    <p>Cole o diagnóstico SPICED do seu prospect + URL do site e receba um relatório completo de inteligência de mercado com 12 seções estratégicas, pronto em segundos.</p>
   </div>
 
   <div class="form-card" style="padding-bottom:0">
@@ -287,31 +287,31 @@ a{color:inherit;text-decoration:none}
       </div>
     </div>
     <div class="form-group">
-      <label class="form-label">DiagnÃ³stico SPICED <span class="req">*</span></label>
-      <textarea id="inp-spiced" class="form-textarea" placeholder="Cole aqui o diagnÃ³stico SPICED completo do prospect...
+      <label class="form-label">Diagnóstico SPICED <span class="req">*</span></label>
+      <textarea id="inp-spiced" class="form-textarea" placeholder="Cole aqui o diagnóstico SPICED completo do prospect...
 
-S â Situation (SituaÃ§Ã£o atual da empresa)
-P â Pain (Principais dores identificadas)
-I â Impact (Impacto financeiro/estratÃ©gico do problema)
-C â Critical Event (Evento crÃ­tico / urgÃªncia)
-E â Decision (Processo de decisÃ£o e stakeholders)
-D â Decision Criteria (CritÃ©rios de decisÃ£o)"></textarea>
+S — Situation (Situação atual da empresa)
+P — Pain (Principais dores identificadas)
+I — Impact (Impacto financeiro/estratégico do problema)
+C — Critical Event (Evento crítico / urgência)
+E — Decision (Processo de decisão e stakeholders)
+D — Decision Criteria (Critérios de decisão)"></textarea>
     </div>
     <button class="btn-primary" onclick="go()">
       <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-      Gerar InteligÃªncia de Mercado
+      Gerar Inteligência de Mercado
     </button>
     <div class="strip">
-      <div class="strip-item"><div class="strip-icon">ð</div><div class="strip-label">TAM/SAM/SOM</div></div>
-      <div class="strip-item"><div class="strip-icon">ð¯</div><div class="strip-label">ICP & Persona</div></div>
-      <div class="strip-item"><div class="strip-icon">âï¸</div><div class="strip-label">Concorrentes</div></div>
-      <div class="strip-item"><div class="strip-icon">ð±</div><div class="strip-label">MÃ­dia Paga</div></div>
-      <div class="strip-item"><div class="strip-icon">ð§ </div><div class="strip-label">CRO & Copy</div></div>
+      <div class="strip-item"><div class="strip-icon">📊</div><div class="strip-label">TAM/SAM/SOM</div></div>
+      <div class="strip-item"><div class="strip-icon">🎯</div><div class="strip-label">ICP & Persona</div></div>
+      <div class="strip-item"><div class="strip-icon">⚔️</div><div class="strip-label">Concorrentes</div></div>
+      <div class="strip-item"><div class="strip-icon">📱</div><div class="strip-label">Mídia Paga</div></div>
+      <div class="strip-item"><div class="strip-icon">🧠</div><div class="strip-label">CRO & Copy</div></div>
     </div>
   </div>
 </div>
 
-<!-- ââââââââââââââââââââ SCREEN 2 â LOADING ââââââââââââââââââââ -->
+<!-- ════════════════════ SCREEN 2 — LOADING ════════════════════ -->
 <div id="screen-loading" class="screen">
   <div class="loading-wrap">
     <div class="loading-logo">V4 <span>Intelligence</span></div>
@@ -320,26 +320,26 @@ D â Decision Criteria (CritÃ©rios de decisÃ£o)"></textarea>
       <div class="progress-pct" id="prog-pct">0%</div>
     </div>
     <div class="steps" id="steps-list">
-      <div class="step" id="st-0"><div class="step-dot"></div><div class="step-label">Lendo diagnÃ³stico SPICED</div></div>
+      <div class="step" id="st-0"><div class="step-dot"></div><div class="step-label">Lendo diagnóstico SPICED</div></div>
       <div class="step" id="st-1"><div class="step-dot"></div><div class="step-label">Estimando TAM/SAM/SOM</div></div>
       <div class="step" id="st-2"><div class="step-dot"></div><div class="step-label">Mapeando concorrentes</div></div>
       <div class="step" id="st-3"><div class="step-dot"></div><div class="step-label">Construindo ICP e Persona</div></div>
       <div class="step" id="st-4"><div class="step-dot"></div><div class="step-label">Gerando JTBD, Diferenciais e PUV</div></div>
-      <div class="step" id="st-5"><div class="step-dot"></div><div class="step-label">DiagnÃ³sticos de MÃ­dia, CRO e Copy</div></div>
-      <div class="step" id="st-6"><div class="step-dot"></div><div class="step-label">Compilando relatÃ³rio...</div></div>
+      <div class="step" id="st-5"><div class="step-dot"></div><div class="step-label">Diagnósticos de Mídia, CRO e Copy</div></div>
+      <div class="step" id="st-6"><div class="step-dot"></div><div class="step-label">Compilando relatório...</div></div>
     </div>
   </div>
 </div>
 
-<!-- ââââââââââââââââââââ SCREEN 3 â RELATÃRIO ââââââââââââââââââââ -->
+<!-- ════════════════════ SCREEN 3 — RELATÓRIO ════════════════════ -->
 <div id="screen-report" class="screen">
   <div class="rpt-header">
     <div>
-      <div class="rpt-company" id="rpt-company">â</div>
-      <div class="rpt-segment" id="rpt-segment">â</div>
+      <div class="rpt-company" id="rpt-company">—</div>
+      <div class="rpt-segment" id="rpt-segment">—</div>
     </div>
     <div class="rpt-actions">
-      <button class="btn-sm ghost" onclick="newAnalysis()">Nova anÃ¡lise</button>
+      <button class="btn-sm ghost" onclick="newAnalysis()">Nova análise</button>
       <button class="btn-sm solid" onclick="exportRpt()">Exportar JSON</button>
     </div>
   </div>
@@ -348,13 +348,13 @@ D â Decision Criteria (CritÃ©rios de decisÃ£o)"></textarea>
     <button class="tab-btn active" onclick="tab('resumo',this)">Resumo</button>
     <button class="tab-btn" onclick="tab('tam',this)">TAM/SAM/SOM</button>
     <button class="tab-btn" onclick="tab('competitors',this)">Concorrentes</button>
-    <button class="tab-btn" onclick="tab('solutions',this)">SoluÃ§Ãµes</button>
+    <button class="tab-btn" onclick="tab('solutions',this)">Soluções</button>
     <button class="tab-btn" onclick="tab('jtbd',this)">JTBD</button>
     <button class="tab-btn" onclick="tab('differentials',this)">Diferenciais</button>
     <button class="tab-btn" onclick="tab('icp',this)">ICP & Persona</button>
     <button class="tab-btn" onclick="tab('fourps',this)">4Ps</button>
     <button class="tab-btn" onclick="tab('puv',this)">PUV</button>
-    <button class="tab-btn" onclick="tab('media',this)">MÃ­dia Paga</button>
+    <button class="tab-btn" onclick="tab('media',this)">Mídia Paga</button>
     <button class="tab-btn" onclick="tab('creatives',this)">Criativos</button>
     <button class="tab-btn" onclick="tab('cro',this)">CRO</button>
     <button class="tab-btn" onclick="tab('copy',this)">Copywriting</button>
@@ -374,7 +374,7 @@ D â Decision Criteria (CritÃ©rios de decisÃ£o)"></textarea>
       </div>
     </div>
     <div class="card">
-      <div class="card-title">Ãngulo V4 â Como Abordar Este Prospect</div>
+      <div class="card-title">Ângulo V4 — Como Abordar Este Prospect</div>
       <div id="exec-angle" style="font-size:15px;line-height:1.7;color:var(--text2)"></div>
     </div>
   </div>
@@ -393,16 +393,16 @@ D â Decision Criteria (CritÃ©rios de decisÃ£o)"></textarea>
   <!-- TAB: SOLUTIONS -->
   <div id="panel-solutions" class="tab-panel">
     <div class="card" style="margin-bottom:20px">
-      <div class="card-title">Insight do CenÃ¡rio</div>
+      <div class="card-title">Insight do Cenário</div>
       <div id="sol-insight" style="font-size:14px;color:var(--text2);line-height:1.7"></div>
     </div>
     <div class="grid-2">
       <div class="card">
-        <div class="card-title">SoluÃ§Ãµes Diretas</div>
+        <div class="card-title">Soluções Diretas</div>
         <div id="sol-direct"></div>
       </div>
       <div class="card">
-        <div class="card-title amber">SoluÃ§Ãµes Indiretas</div>
+        <div class="card-title amber">Soluções Indiretas</div>
         <div id="sol-indirect"></div>
       </div>
     </div>
@@ -438,9 +438,9 @@ D â Decision Criteria (CritÃ©rios de decisÃ£o)"></textarea>
       <div id="icp-persona"></div>
     </div>
     <div class="card">
-      <div class="card-title">ComitÃª de Compra</div>
+      <div class="card-title">Comitê de Compra</div>
       <table class="tbl" id="icp-committee-table">
-        <thead><tr><th>Cargo</th><th>Tipo</th><th>Principal PreocupaÃ§Ã£o</th></tr></thead>
+        <thead><tr><th>Cargo</th><th>Tipo</th><th>Principal Preocupação</th></tr></thead>
         <tbody id="icp-committee"></tbody>
       </table>
     </div>
@@ -463,16 +463,16 @@ D â Decision Criteria (CritÃ©rios de decisÃ£o)"></textarea>
     </div>
   </div>
 
-  <!-- TAB: MÃDIA PAGA -->
+  <!-- TAB: MÍDIA PAGA -->
   <div id="panel-media" class="tab-panel">
     <div class="grid-4" style="margin-bottom:20px" id="media-stats"></div>
     <div class="grid-2" style="margin-bottom:20px" id="media-channels"></div>
     <div class="card" style="margin-bottom:20px">
-      <div class="card-title">RecomendaÃ§Ã£o</div>
+      <div class="card-title">Recomendação</div>
       <div id="media-rec" style="font-size:14px;color:var(--text2);line-height:1.7"></div>
     </div>
     <div class="card">
-      <div class="card-title">Plano de AÃ§Ã£o</div>
+      <div class="card-title">Plano de Ação</div>
       <div id="media-plan"></div>
     </div>
   </div>
@@ -486,7 +486,7 @@ D â Decision Criteria (CritÃ©rios de decisÃ£o)"></textarea>
       <div id="creatives-gaps"></div>
     </div>
     <div class="card">
-      <div class="card-title green">RecomendaÃ§Ãµes</div>
+      <div class="card-title green">Recomendações</div>
       <div id="creatives-recs"></div>
     </div>
   </div>
@@ -499,7 +499,7 @@ D â Decision Criteria (CritÃ©rios de decisÃ£o)"></textarea>
       <div id="cro-gaps"></div>
     </div>
     <div class="card">
-      <div class="card-title red" style="--color:var(--red)">CorreÃ§Ãµes PrioritÃ¡rias</div>
+      <div class="card-title red" style="--color:var(--red)">Correções Prioritárias</div>
       <div id="cro-fixes"></div>
     </div>
   </div>
@@ -508,9 +508,9 @@ D â Decision Criteria (CritÃ©rios de decisÃ£o)"></textarea>
   <div id="panel-copy" class="tab-panel">
     <div class="grid-3" style="margin-bottom:20px" id="copy-tones"></div>
     <div class="card">
-      <div class="card-title">AnÃ¡lise de Gaps de Narrativa</div>
+      <div class="card-title">Análise de Gaps de Narrativa</div>
       <div class="gap-hdr">
-        <span>DimensÃ£o</span><span>Atual</span><span>Ideal</span><span>Severidade</span>
+        <span>Dimensão</span><span>Atual</span><span>Ideal</span><span>Severidade</span>
       </div>
       <div id="copy-gaps"></div>
     </div>
@@ -521,17 +521,17 @@ D â Decision Criteria (CritÃ©rios de decisÃ£o)"></textarea>
 <div class="toast" id="toast"></div>
 
 <script>
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ──────────────────────────────────────────
 // STATE
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ──────────────────────────────────────────
 let _data = null;
 let _timers = [];
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ──────────────────────────────────────────
 // HELPERS
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ──────────────────────────────────────────
 function s(v) {
-  if (v === null || v === undefined || v === '') return 'â';
+  if (v === null || v === undefined || v === '') return '—';
   return String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 function arr(v) { return Array.isArray(v) ? v : []; }
@@ -553,15 +553,15 @@ function tab(id, el) {
   document.getElementById('panel-' + id).classList.add('active');
 }
 function badgePresence(v) {
-  const map = { forte: 'green', mÃ©dia: 'amber', fraca: 'red' };
+  const map = { forte: 'green', média: 'amber', fraca: 'red' };
   return `<span class="badge ${map[v]||'neutral'}">${s(v)}</span>`;
 }
 function badgeSeverity(v) {
-  const map = { alto: 'red', mÃ©dio: 'amber', baixo: 'green' };
+  const map = { alto: 'red', médio: 'amber', baixo: 'green' };
   return `<span class="badge ${map[v]||'neutral'}">${s(v)}</span>`;
 }
 function badgeType(v) {
-  const map = { decisor: 'red', influenciador: 'amber', 'usuÃ¡rio': 'neutral' };
+  const map = { decisor: 'red', influenciador: 'amber', 'usuário': 'neutral' };
   return `<span class="badge ${map[v]||'neutral'}">${s(v)}</span>`;
 }
 function checkList(items, cls='') {
@@ -573,9 +573,9 @@ function actionList(items) {
   ).join('');
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ──────────────────────────────────────────
 // LOADING ANIMATION
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ──────────────────────────────────────────
 const STEPS_TIMING = [0, 800, 3000, 5500, 8500, 12000, 16000];
 const STEPS_PCT    = [14,  28,   44,   60,   75,    88,   100];
 
@@ -601,16 +601,16 @@ function startTimers() {
 }
 function clearTimers() { _timers.forEach(t => clearTimeout(t)); _timers = []; }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ──────────────────────────────────────────
 // MAIN FLOW
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ──────────────────────────────────────────
 async function go() {
   const url = document.getElementById('inp-url').value.trim();
   const spiced = document.getElementById('inp-spiced').value.trim();
   const competitors = document.getElementById('inp-competitors').value.trim();
 
-  if (!url) { showToast('â  Informe a URL do site'); return; }
-  if (!spiced) { showToast('â  Cole o diagnÃ³stico SPICED'); return; }
+  if (!url) { showToast('⚠ Informe a URL do site'); return; }
+  if (!spiced) { showToast('⚠ Cole o diagnóstico SPICED'); return; }
 
   setScreen('loading');
   startTimers();
@@ -627,7 +627,7 @@ async function go() {
 
     if (!resp.ok || !json.success) {
       setScreen('input');
-      showToast('Erro: ' + (json.error || 'Falha na anÃ¡lise'), 5000);
+      showToast('Erro: ' + (json.error || 'Falha na análise'), 5000);
       return;
     }
 
@@ -642,7 +642,7 @@ async function go() {
   } catch (err) {
     clearTimers();
     setScreen('input');
-    showToast('Erro de conexÃ£o: ' + err.message, 5000);
+    showToast('Erro de conexão: ' + err.message, 5000);
   }
 }
 
@@ -657,17 +657,17 @@ function newAnalysis() {
 function exportRpt() {
   if (!_data) return;
   navigator.clipboard.writeText(JSON.stringify(_data, null, 2))
-    .then(() => showToast('â JSON copiado para a Ã¡rea de transferÃªncia'))
+    .then(() => showToast('✓ JSON copiado para a área de transferência'))
     .catch(() => showToast('Falha ao copiar'));
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ──────────────────────────────────────────
 // RENDER
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ──────────────────────────────────────────
 function render(d) {
   // Header
-  document.getElementById('rpt-company').textContent = d.company || 'â';
-  document.getElementById('rpt-segment').textContent = d.segment || 'â';
+  document.getElementById('rpt-company').textContent = d.company || '—';
+  document.getElementById('rpt-segment').textContent = d.segment || '—';
   const hdrRight = document.getElementById('hdr-right');
   hdrRight.innerHTML = `<div class="hdr-report-info"><span class="hdr-company">${s(d.company)}</span><span class="hdr-segment">${s(d.segment)}</span></div>`;
 
@@ -686,10 +686,10 @@ function render(d) {
   renderCopy(d.copy_narrative || {});
 }
 
-// ââ EXEC SUMMARY ââ
+// ── EXEC SUMMARY ──
 function renderExec(e) {
   const scoreColor = parseFloat(e.score) >= 7 ? 'green' : parseFloat(e.score) >= 5 ? 'amber' : 'red';
-  const maturityBadge = { 'Alta': 'green', 'MÃ©dia': 'amber', 'Baixa': 'red' }[e.digital_maturity] || 'neutral';
+  const maturityBadge = { 'Alta': 'green', 'Média': 'amber', 'Baixa': 'red' }[e.digital_maturity] || 'neutral';
 
   document.getElementById('exec-grid').innerHTML = `
     <div class="exec-card">
@@ -709,31 +709,31 @@ function renderExec(e) {
       <div class="exec-card-label">Concorrentes Mapeados</div>
     </div>
     <div class="exec-card" style="grid-column:1/-1">
-      <div class="exec-card-label" style="margin-bottom:6px">Status de MÃ­dia</div>
+      <div class="exec-card-label" style="margin-bottom:6px">Status de Mídia</div>
       <div style="font-size:14px;color:var(--text2)">${s(e.media_status)}</div>
     </div>
   `;
-  document.getElementById('exec-opp').textContent = e.main_opportunity || 'â';
-  document.getElementById('exec-risk').textContent = e.main_risk || 'â';
-  document.getElementById('exec-angle').textContent = e.v4_angle || 'â';
+  document.getElementById('exec-opp').textContent = e.main_opportunity || '—';
+  document.getElementById('exec-risk').textContent = e.main_risk || '—';
+  document.getElementById('exec-angle').textContent = e.v4_angle || '—';
 }
 
-// ââ TAM ââ
+// ── TAM ──
 function renderTam(t) {
   document.getElementById('tam-vals').innerHTML = `
     <div class="card">
       <div class="stat-val red">${s(t.tam_val)}</div>
-      <div class="stat-label">TAM â Total Addressable Market</div>
+      <div class="stat-label">TAM — Total Addressable Market</div>
       <div class="stat-desc">${s(t.tam_desc)}</div>
     </div>
     <div class="card">
       <div class="stat-val amber">${s(t.sam_val)}</div>
-      <div class="stat-label">SAM â Serviceable Addressable Market</div>
+      <div class="stat-label">SAM — Serviceable Addressable Market</div>
       <div class="stat-desc">${s(t.sam_desc)}</div>
     </div>
     <div class="card">
       <div class="stat-val green">${s(t.som_val)}</div>
-      <div class="stat-label">SOM â Serviceable Obtainable Market</div>
+      <div class="stat-label">SOM — Serviceable Obtainable Market</div>
       <div class="stat-desc">${s(t.som_desc)}</div>
     </div>
   `;
@@ -751,7 +751,7 @@ function renderTam(t) {
   `;
 }
 
-// ââ COMPETITORS ââ
+// ── COMPETITORS ──
 function renderCompetitors(comps) {
   if (!comps.length) {
     document.getElementById('comp-list').innerHTML = '<div class="card"><p style="color:var(--text3)">Nenhum concorrente identificado.</p></div>';
@@ -772,11 +772,11 @@ function renderCompetitors(comps) {
       <div class="comp-body">
         <div class="comp-row"><span class="comp-key">Posicionamento</span><span class="comp-val">${s(c.positioning)}</span></div>
         <div class="comp-row"><span class="comp-key">Tom</span><span class="comp-val">${s(c.tone)}</span></div>
-        <div class="comp-row"><span class="comp-key">TrÃ¡fego Est.</span><span class="comp-val">${s(c.traffic_est)}</span></div>
+        <div class="comp-row"><span class="comp-key">Tráfego Est.</span><span class="comp-val">${s(c.traffic_est)}</span></div>
         <div class="comp-row"><span class="comp-key">Canais</span><div>${arr(c.channels).map(ch=>`<span class="chip">${s(ch)}</span>`).join('')}</div></div>
         <div class="grid-2" style="gap:12px;margin-top:4px">
           <div>
-            <div class="comp-key" style="margin-bottom:8px">ForÃ§as</div>
+            <div class="comp-key" style="margin-bottom:8px">Forças</div>
             ${checkList(c.strengths,'green')}
           </div>
           <div>
@@ -789,23 +789,23 @@ function renderCompetitors(comps) {
   `).join('');
 }
 
-// ââ SOLUTIONS ââ
+// ── SOLUTIONS ──
 function renderSolutions(sol) {
-  document.getElementById('sol-insight').textContent = sol.insight || 'â';
+  document.getElementById('sol-insight').textContent = sol.insight || '—';
   const solCard = (items) => arr(items).map(it => `
     <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)">
       <div style="font-family:var(--font-title);font-weight:700;font-size:14px;margin-bottom:4px">${s(it.name)}</div>
       <div style="font-size:13px;color:var(--text2);margin-bottom:6px">${s(it.desc)}</div>
-      <span class="badge red">LimitaÃ§Ã£o: ${s(it.limit)}</span>
+      <span class="badge red">Limitação: ${s(it.limit)}</span>
     </div>
   `).join('');
   document.getElementById('sol-direct').innerHTML = solCard(sol.direct);
   document.getElementById('sol-indirect').innerHTML = solCard(sol.indirect);
 }
 
-// ââ JTBD ââ
+// ── JTBD ──
 function renderJtbd(j) {
-  document.getElementById('jtbd-main').textContent = j.main_job || 'â';
+  document.getElementById('jtbd-main').textContent = j.main_job || '—';
   document.getElementById('jtbd-lists').innerHTML = `
     <div class="card">
       <div class="card-title">Funcional</div>
@@ -822,9 +822,9 @@ function renderJtbd(j) {
   `;
 }
 
-// ââ DIFFERENTIALS ââ
+// ── DIFFERENTIALS ──
 function renderDifferentials(d) {
-  document.getElementById('diff-vs').textContent = d.vs_market || 'â';
+  document.getElementById('diff-vs').textContent = d.vs_market || '—';
   document.getElementById('diff-lists').innerHTML = `
     <div class="card">
       <div class="card-title green">Diferenciais Reais</div>
@@ -835,10 +835,10 @@ function renderDifferentials(d) {
       ${checkList(d.potential,'amber')}
     </div>
   `;
-  document.getElementById('diff-v4').textContent = d.v4_opportunity || 'â';
+  document.getElementById('diff-v4').textContent = d.v4_opportunity || '—';
 }
 
-// ââ ICP & PERSONA ââ
+// ── ICP & PERSONA ──
 function renderIcp(icp) {
   document.getElementById('icp-company').innerHTML = `
     <div class="card">
@@ -865,7 +865,7 @@ function renderIcp(icp) {
       <div class="persona-avatar">${initials}</div>
       <div style="flex:1;min-width:200px">
         <div style="font-family:var(--font-title);font-weight:700;font-size:18px;margin-bottom:2px">${s(icp.persona_name)}</div>
-        <div style="color:var(--text3);font-size:13px;margin-bottom:12px">${s(icp.persona_role)} Â· ${s(icp.persona_age)}</div>
+        <div style="color:var(--text3);font-size:13px;margin-bottom:12px">${s(icp.persona_role)} · ${s(icp.persona_age)}</div>
         <div class="grid-3" style="gap:16px;margin-top:8px">
           <div><div class="comp-key" style="margin-bottom:8px">Dores</div>${checkList(icp.persona_pains)}</div>
           <div><div class="comp-key" style="margin-bottom:8px">Objetivos</div>${checkList(icp.persona_goals,'green')}</div>
@@ -881,9 +881,9 @@ function renderIcp(icp) {
   `).join('');
 }
 
-// ââ 4PS ââ
+// ── 4PS ──
 function renderFourPs(ps) {
-  const labels = { product: 'Produto', price: 'PreÃ§o', place: 'PraÃ§a', promotion: 'PromoÃ§Ã£o' };
+  const labels = { product: 'Produto', price: 'Preço', place: 'Praça', promotion: 'Promoção' };
   const colors = { product: '', price: 'amber', place: 'green', promotion: '' };
   document.getElementById('fourps-grid').innerHTML = Object.entries(ps).map(([k,v]) => `
     <div class="card">
@@ -893,19 +893,19 @@ function renderFourPs(ps) {
   `).join('');
 }
 
-// ââ PUV ââ
+// ── PUV ──
 function renderPuv(p) {
-  document.getElementById('puv-statement').textContent = p.statement || 'â';
-  document.getElementById('puv-tagline').textContent = p.tagline ? `"${p.tagline}"` : 'â';
-  document.getElementById('puv-rationale').textContent = p.rationale || 'â';
+  document.getElementById('puv-statement').textContent = p.statement || '—';
+  document.getElementById('puv-tagline').textContent = p.tagline ? `"${p.tagline}"` : '—';
+  document.getElementById('puv-rationale').textContent = p.rationale || '—';
 }
 
-// ââ MEDIA ââ
+// ── MEDIA ──
 function renderMedia(m) {
   const statusBadge = m.status === 'investe' ? 'green' : 'red';
   document.getElementById('media-stats').innerHTML = `
     <div class="card">
-      <span class="badge ${statusBadge}" style="font-size:11px">${m.status === 'investe' ? 'Investe em MÃ­dia' : 'NÃ£o Investe'}</span>
+      <span class="badge ${statusBadge}" style="font-size:11px">${m.status === 'investe' ? 'Investe em Mídia' : 'Não Investe'}</span>
       <div class="stat-label" style="margin-top:8px">Status Geral</div>
     </div>
     <div class="card">
@@ -927,7 +927,7 @@ function renderMedia(m) {
     <div class="card">
       <div class="card-title">Meta Ads</div>
       <div style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px">${s(m.meta_analysis)}</div>
-      <div class="comp-key" style="margin-bottom:6px">AnÃ¡lise Concorrentes</div>
+      <div class="comp-key" style="margin-bottom:6px">Análise Concorrentes</div>
       <div style="font-size:13px;color:var(--text2)">${s(m.competitors_media)}</div>
     </div>
     <div class="card">
@@ -937,14 +937,14 @@ function renderMedia(m) {
       <div>${arr(m.google_keywords).map(k=>`<span class="chip">${s(k)}</span>`).join('')}</div>
     </div>
   `;
-  document.getElementById('media-rec').textContent = m.recommendation || 'â';
+  document.getElementById('media-rec').textContent = m.recommendation || '—';
   document.getElementById('media-plan').innerHTML = actionList(m.action_plan);
 }
 
-// ââ CREATIVES ââ
+// ── CREATIVES ──
 function renderCreatives(c) {
-  const qMap = { baixa:'red', mÃ©dia:'amber', alta:'green' };
-  const eMap = { baixo:'red', mÃ©dio:'amber', alto:'green' };
+  const qMap = { baixa:'red', média:'amber', alta:'green' };
+  const eMap = { baixo:'red', médio:'amber', alto:'green' };
   document.getElementById('creatives-stats').innerHTML = `
     <div class="card">
       <span class="badge ${qMap[c.quality_level]||'neutral'}">${s(c.quality_level)}</span>
@@ -956,7 +956,7 @@ function renderCreatives(c) {
     </div>
     <div class="card">
       <div style="font-size:14px;font-weight:600">${s(c.social_freq)}</div>
-      <div class="stat-label" style="margin-top:4px">FrequÃªncia Posts</div>
+      <div class="stat-label" style="margin-top:4px">Frequência Posts</div>
     </div>
     <div class="card">
       <div style="font-size:13px;color:var(--text2);line-height:1.5">${s(c.bio_analysis)}</div>
@@ -977,7 +977,7 @@ function renderCreatives(c) {
   document.getElementById('creatives-recs').innerHTML = actionList(c.recommendations);
 }
 
-// ââ CRO ââ
+// ── CRO ──
 function renderCro(c) {
   document.getElementById('cro-analysis').innerHTML = `
     <div class="card">
@@ -995,7 +995,7 @@ function renderCro(c) {
   document.getElementById('cro-fixes').innerHTML = actionList(c.priority_fixes);
 }
 
-// ââ COPY NARRATIVE ââ
+// ── COPY NARRATIVE ──
 function renderCopy(cn) {
   document.getElementById('copy-tones').innerHTML = `
     <div class="card">
@@ -1011,7 +1011,7 @@ function renderCopy(cn) {
       <div style="font-size:14px;color:var(--text2);line-height:1.6">${s(cn.main_gap)}</div>
     </div>
   `;
-  document.getElementById('copy-gaps').innerHTML = arr(cn.gaps).nmap(g => `
+  document.getElementById('copy-gaps').innerHTML = arr(cn.gaps).map(g => `
     <div class="gap-row">
       <span class="gap-dim">${s(g.dimension)}</span>
       <span style="color:var(--text3)">${s(g.current)}</span>
@@ -1021,5 +1021,5 @@ function renderCopy(cn) {
   `).join('');
 }
 </script>
- </body>
- </html>
+</body>
+</html>
