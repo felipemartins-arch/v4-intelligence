@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>V4 Intelligence â InteligÃªncia de Mercado PrÃ©-ReuniÃ£o</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080808;
+  --bg2:#0f0f0f;
+  --card:#161616;
+  --card2:#1c1c1c;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.12);
+  --red:#E8232A;
+  --red-dim:rgba(232,35,42,0.12);
+  --red-mid:rgba(232,35,42,0.25);
+  --green:#3DBA6F;
+  --green-dim:rgba(61,186,111,0.12);
+  --amber:#F0A500;
+  --amber-dim:rgba(240,165,0,0.12);
+  --text:#F0F0F0;
+  --text2:#A0A0A0;
+  --text3:#606060;
+  --font-title:'Syne',sans-serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.6;min-height:100vh}
+a{color:inherit;text-decoration:none}
+
+/* ââ SCROLLBAR ââ */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--card2);border-radius:3px}
+
+/* ââ HEADER ââ */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.hdr-logo{font-family:var(--font-title);font-weight:800;font-size:18px;letter-spacing:-0.3px;display:flex;align-items:center;gap:8px}
+.hdr-logo span{color:var(--red)}
+.hdr-dot{width:8px;height:8px;background:var(--red);border-radius:50%;display:inline-block;animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hdr-badge{font-family:var(--font-mono);font-size:10px;color:var(--text3);border:1px solid var(--border);padding:3px 8px;border-radius:4px;letter-spacing:.5px}
+.hdr-report-info{display:flex;align-items:center;gap:12px}
+.hdr-company{font-family:var(--font-title);font-weight:700;font-size:14px}
+.hdr-segment{font-family:var(--font-mono);font-size:11px;color:var(--text3);letter-spacing:.5px}
+
+/* ââ SCREENS ââ */
+.screen{display:none;padding-top:56px;min-height:100vh}
+.screen.active{display:block}
+
+/* ââââââââââââââââââââââââââââââââââââââ
+   SCREEN 1 â INPUT
+ââââââââââââââââââââââââââââââââââââââ */
+.hero{padding:80px 32px 48px;max-width:740px;margin:0 auto;text-align:center}
+.hero-eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;color:var(--red);text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-family:var(--font-title);font-weight:800;font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-2px;margin-bottom:16px}
+.hero h1 em{color:var(--red);font-style:normal}
+.hero p{font-size:16px;color:var(--text2);max-width:520px;margin:0 auto 48px;line-height:1.7}
+
+.form-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:32px;max-width:740px;margin:0 auto 80px;position:relative;overflow:hidden}
+.form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),transparent)}
+.form-group{margin-bottom:20px}
+.form-label{font-family:var(--font-mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.form-label .req{color:var(--red)}
+.form-input,.form-textarea{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;color:var(--text);font-family:var(--font-body);font-size:14px;outline:none;transition:border-color .2s}
+.form-input:focus,.form-textarea:focus{border-color:rgba(232,35,42,.4)}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--text3)}
+.form-textarea{min-height:200px;resize:vertical;line-height:1.6}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+
+.btn-primary{width:100%;background:var(--red);border:none;border-radius:8px;padding:15px 24px;color:#fff;font-family:var(--font-title);font-weight:700;font-size:16px;cursor:pointer;transition:all .2s;letter-spacing:.3px;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:10px}
+.btn-primary:hover{background:#ff2d35;transform:translateY(-1px);box-shadow:0 8px 24px rgba(232,35,42,.3)}
+.btn-primary:active{transform:translateY(0)}
+.btn-primary svg{flex-shrink:0}
+
+.strip{display:flex;gap:0;border-top:1px solid var(--border);padding-top:24px;margin-top:4px}
+.strip-item{flex:1;text-align:center;padding:12px 8px;border-right:1px solid var(--border)}
+.strip-item:last-child{border-right:none}
+.strip-icon{font-size:20px;margin-bottom:6px}
+.strip-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.5px;color:var(--text3);text-transform:uppercase}
+@media(max-width:500px){.strip{flex-wrap:wrap}.strip-item{flex:50%;border-right:none;border-bottom:1px solid var(--border)}}
+
+/* ââââââââââââââââââââââââââââââââââââââ
+   SCREEN 2 â LOADING
+ââââââââââââââââââââââââââââââââââââââ */
+.loading-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - 56px);padding:40px 24px}
+.loading-logo{font-family:var(--font-title);font-weight:800;font-size:32px;letter-spacing:-1px;margin-bottom:48px;animation:pulse-logo 2s ease-in-out infinite}
+.loading-logo span{color:var(--red)}
+@keyframes pulse-logo{0%,100%{opacity:1}50%{opacity:.4}}
+.progress-bar-wrap{width:100%;max-width:420px;margin-bottom:40px}
+.progress-bar-track{background:var(--card);border-radius:99px;height:4px;overflow:hidden}
+.progress-bar-fill{background:var(--red);height:100%;border-radius:99px;transition:width .8s cubic-bezier(.4,0,.2,1);width:0%}
+.progress-pct{font-family:var(--font-mono);font-size:11px;color:var(--text3);margin-top:8px;text-align:right}
+.steps{width:100%;max-width:420px;display:flex;flex-direction:column;gap:10px}
+.step{display:flex;align-items:center;gap:12px;iadding:10px 14px;border-radius:8px;transition:all .4s}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--card2);flex-shrink:0;transition:all .4s}
+.step-label{font-size:14px;color:var(--text3);transition:color .4s}
+.step.active .step-dot{background:var(--red);box-shadow:0 0 8px var(--red)}
+.step.active .step-label{color:var(--text)}
+.step.active{background:rgba(232,35,42,.06)}
+.step.done .step-dot{background:var(--green)}
+.step.done .step-label{color:var(--text2)}
+
+/* ââââââââââââââââââââââââââââââââââââââ
+   SCREEN 3 â RELATÃRIO
+ââââââââââââââââââââââââââââââââââââââ */
+.rpt-header{background:var(--card);border-bottom:1px solid var(--border);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.rpt-company{font-family:var(--font-title);font-weight:800;font-size:22px;letter-spacing:-0.5px}
+.rpt-segment{font-family:var(--font-mono);font-size:12px;color:var(--text3);margin-top:2px;letter-spacing:.5px}
+.rpt-actions{display:flex;gap:8px}
+.btn-sm{padding:7px 16px;border-radius:6px;font-family:var(--font-title);font-weight:700;font-size:12px;cursor:pointer;transition:all .2s;border:none;letter-spacing:.3px}
+.btn-sm.ghost{background:transparent;border:1px solid var(--border2);color:var(--text2)}
+.btn-sm.ghost:hover{border-color:var(--red);color:var(--red)}
+.btn-sm.solid{background:var(--red);color:#fff}
+.btn-sm.solid:hover{background:#ff2d35}
+
+/* TABS */
+.tabs-bar{background:var(--card);border-bottom:1px solid var(--border);padding:0 32px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;position:sticky;top:56px;z-index:50}
+.tabs-bar::-webkit-scrollbar{display:none}
+.tab-btn{font-family:var(--font-mono);font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--text3);padding:14px 14px;border:none;background:transparent;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--red);border-bottom-color:var(--red)}
+
+/* TAB PANELS */
+.tab-panel{display:none;padding:32px;max-width:1100px;margin:0 auto;animation:fadeIn .3s ease}
+.tab-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* GRID LAYOUTS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr}.grid-4{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px 24px}
+.card.no-pad{padding:0}
+.card-title{font-family:var(--font-title);font-weight:700;font-size:13px;letter-spacing:.3px;color:var(--text2);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--red);border-radius:2px;flex-shrink:0}
+.card-title.green::before{background:var(--green)}
+.card-title.amber::before{background:var(--amber)}
+
+/* STAT BLOCK */
+.stat-val{font-family:var(--font-title);font-weight:800;font-size:26px;line-height:1.1;margin-bottom:4px}
+.stat-val.red{color:var(--red)}
+.stat-val.green{color:var(--green)}
+.stat-val.amber{color:var(--amber)}
+.stat-label{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text3)}
+.stat-desc{font-size:13px;color:var(--text2);margin-top:8px;line-height:1.5}
+
+/* SCORE */
+.score-ring{display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;border:3px solid var(--red);font-family:var(--font-title);font-weight:800;font-size:22px;color:var(--red)}
+
+/* BADGES */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:99px;font-family:var(--font-mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase;font-weight:500}
+.badge.green{background:var(--green-dim);color:var(--green)}
+.badge.amber{background:var(--amber-dim);color:var(--amber)}
+.badge.red{background:var(--red-dim);color:var(--red)}
+.badge.neutral{background:rgba(255,255,255,0.06);color:var(--text2)}
+
+/* TAGS */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:var(--red-dim);color:var(--red);margin:2px}
+.tag.neutral{background:rgba(255,255,255,0.06);color:var(--text2)}
+.tag.green{background:var(--green-dim);color:var(--green)}
+.tag.amber{background:var(--amber-dim);color:var(--amber)}
+
+/* CHIP */
+.chip{display:inline-block;background:#1E1E1E;border:1px solid var(--border);border-radius:5px;padding:3px 9px;font-size:12px;color:var(--text2);margin:2px}
+
+/* LIST */
+.check-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.check-list li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text2);line-height:1.5}
+.check-list li::before{content:'';display:block;width:6px;height:6px;background:var(--red);border-radius:50%;margin-top:7px;flex-shrink:0}
+.check-list.green li::before{background:var(--green)}
+.check-list.amber li::before{background:var(--amber)}
+.check-list.neutral li::before{background:var(--text3)}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text3);padding:10px 14px;text-align:left;border-bottom:1px solid var(--border)}
+.tbl td{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text2);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(255,255,255,0.02)}
+
+/* COMPETITOR CARD */
+.comp-card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.comp-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px}
+.comp-name{font-family:var(--font-title);font-weight:700;font-size:15px}
+.comp-url{font-family:var(--font-mono);font-size:11px;color:var(--text3)}
+.comp-body{padding:16px 20px;display:flex;flex-direction:column;gap:12px}
+.comp-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.comp-key{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);min-width:80px}
+.comp-val{font-size:13px;color:var(--text2)}
+
+/* EXEC SUMMARY CARDS */
+.exec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px}
+.exec-card{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:16px}
+.exec-card-val{font-family:var(--font-title);font-weight:800;font-size:20px;margin-bottom:4px}
+.exec-card-label{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--text3)}
+
+/* HIGHLIGHT BOX */
+.highlight{background:var(--red-dim);border:1px solid rgba(232,35,42,.2);border-radius:8px;padding:16px 18px;font-size:14px;color:var(--text);line-height:1.6}
+.highlight.green{background:var(--green-dim);border-color:rgba(61,186,111,.2)}
+.highlight.amber{background:var(--amber-dim);border-color:rgba(240,165,0,.2)}
+
+/* PERSONA */
+.persona-avatar{width:56px;height:56px;border-radius:50%;background:var(--red-dim);border:2px solid var(--red);display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-weight:800;font-size:22px;color:var(--red);flex-shrink:0}
+
+/* PUV */
+.puv-statement{font-family:var(--font-title);font-weight:700;font-size:20px;line-height:1.4;letter-spacing:-.3px;margin-bottom:12px}
+.puv-tagline{font-family:var(--font-mono);font-size:13px;color:var(--amber);letter-spacing:1px}
+
+/* COPY GAP ROW */
+.gap-row{display:grid;grid-template-columns:140px 1fr 1fr 80px;gap:12px;padding:12px 14px;border-bottom:1px solid var(--border);align-items:start;font-size:13px}
+.gap-row:last-child{border-bottom:none}
+.gap-dim{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text2)}
+.gap-hdr{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);padding:0 14px 6px;display:grid;grid-template-columns:140px 1fr 1fr 80px;gap:12px}
+@media(max-width:700px){.gap-hdr,.gap-row{grid-template-columns:1fr 1fr;}.gap-dim,.gap-row>:nth-child(4){grid-column:1/-1}}
+
+/* ACTION ITEMS */
+.action-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.action-item:last-child{border-bottom:none}
+.action-num{font-family:var(--font-mono);font-size:11px;color:var(--red);min-width:20px}
+
+/* DIVIDER */
+.divider{border:none;border-top:1px solid var(--border);margin:24px 0}
+
+/* SECTION TITLE */
+.section-title{font-family:var(--font-title);font-weight:800;font-size:20px;letter-spacing:-.5px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.section-title .pill{font-family:var(--font-mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:var(--red-dim);color:var(--red);padding:4px 10px;border-radius:99px;font-weight:400}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--card2);border:1px solid var(--border2);padding:12px 20px;border-radius:8px;font-size:13px;color:var(--text);z-index:9999;transform:translateY(20px);opacity:0;transition:all .3s;pointer-events:none}
+.toast.show{transform:none;opacity:1}
+
+/* ERROR MSG */
+.error-box{background:#1a0000;border:1px solid rgba(232,35,42,.3);border-radius:8px;padding:20px;font-size:14px;color:#ff6b6b;line-height:1.6}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hdr{padding:0 16px}
+  .hero{padding:48px 16px 32px}
+  .form-card{margin:0 16px 48px}
+  .rpt-header,.tabs-bar{padding-left:16px;padding-right:16px}
+  .tab-panel{padding:20px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ââââââââââââââââââââ HEADER ââââââââââââââââââââ -->
+<header class="hdr" id="hdr">
+  <div class="hdr-logo">
+    <span class="hdr-dot"></span>
+    V4 <span>Intelligence</span>
+  </div>
+  <div id="hdr-right">
+    <span class="hdr-badge">BETA</span>
+  </div>
+</header>
+
+<!-- ââââââââââââââââââââ SCREEN 1 â INPUT ââââââââââââââââââââ -->
+<div id="screen-input" class="screen active">
+  <div class="hero">
+    <div class="hero-eyebrow">V4 Company Â· Intelligence Suite</div>
+    <h1>MuniÃ§Ã£o para sua<br/><em>reuniÃ£o.</em></h1>
+    <p>Cole o diagnÃ³stico SPICED do seu prospect + URL do site e receba um relatÃ³rio completo de inteligÃªncia de mercado com 12 seÃ§Ãµes estratÃ©gicas, pronto em segundos.</p>
+  </div>
+
+  <div class="form-card" style="padding-bottom:0">
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">URL do Site <span class="req">*</span></label>
+        <input id="inp-url" class="form-input" type="url" placeholder="https://exemplo.com.br" autocomplete="off"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Concorrentes Conhecidos</label>
+        <input id="inp-competitors" class="form-input" type="text" placeholder="Ex: Empresa A, Empresa B" autocomplete="off"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">DiagnÃ³stico SPICED <span class="req">*</span></label>
+      <textarea id="inp-spiced" class="form-textarea" placeholder="Cole aqui o diagnÃ³stico SPICED completo do prospect...
+
+S â Situation (SituaÃ§Ã£o atual da empresa)
+P â Pain (Principais dores identificadas)
+I â Impact (Impacto financeiro/estratÃ©gico do problema)
+C â Critical Event (Evento crÃ­tico / urgÃªncia)
+E â Decision (Processo de decisÃ£o e stakeholders)
+D â Decision Criteria (CritÃ©rios de decisÃ£o)"></textarea>
+    </div>
+    <button class="btn-primary" onclick="go()">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      Gerar InteligÃªncia de Mercado
+    </button>
+    <div class="strip">
+      <div class="strip-item"><div class="strip-icon">ð</div><div class="strip-label">TAM/SAM/SOM</div></div>
+      <div class="strip-item"><div class="strip-icon">ð¯</div><div class="strip-label">ICP & Persona</div></div>
+      <div class="strip-item"><div class="strip-icon">âï¸</div><div class="strip-label">Concorrentes</div></div>
+      <div class="strip-item"><div class="strip-icon">ð±</div><div class="strip-label">MÃ­dia Paga</div></div>
+      <div class="strip-item"><div class="strip-icon">ð§ </div><div class="strip-label">CRO & Copy</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ââââââââââââââââââââ SCREEN 2 â LOADING ââââââââââââââââââââ -->
+<div id="screen-loading" class="screen">
+  <div class="loading-wrap">
+    <div class="loading-logo">V4 <span>Intelligence</span></div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-fill"></div></div>
+      <div class="progress-pct" id="prog-pct">0%</div>
+    </div>
+    <div class="steps" id="steps-list">
+      <div class="step" id="st-0"><div class="step-dot"></div><div class="step-label">Lendo diagnÃ³stico SPICED</div></div>
+      <div class="step" id="st-1"><div class="step-dot"></div><div class="step-label">Estimando TAM/SAM/SOM</div></div>
+      <div class="step" id="st-2"><div class="step-dot"></div><div class="step-label">Mapeando concorrentes</div></div>
+      <div class="step" id="st-3"><div class="step-dot"></div><div class="step-label">Construindo ICP e Persona</div></div>
+      <div class="step" id="st-4"><div class="step-dot"></div><div class="step-label">Gerando JTBD, Diferenciais e PUV</div></div>
+      <div class="step" id="st-5"><div class="step-dot"></div><div class="step-label">DiagnÃ³sticos de MÃ­dia, CRO e Copy</div></div>
+      <div class="step" id="st-6"><div class="step-dot"></div><div class="step-label">Compilando relatÃ³rio...</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ââââââââââââââââââââ SCREEN 3 â RELATÃRIO ââââââââââââââââââââ -->
+<div id="screen-report" class="screen">
+  <div class="rpt-header">
+    <div>
+      <div class="rpt-company" id="rpt-company">â</div>
+      <div class="rpt-segment" id="rpt-segment">â</div>
+    </div>
+    <div class="rpt-actions">
+      <button class="btn-sm ghost" onclick="newAnalysis()">Nova anÃ¡lise</button>
+      <button class="btn-sm solid" onclick="exportRpt()">Exportar JSON</button>
+    </div>
+  </div>
+
+  <div class="tabs-bar">
+    <button class="tab-btn active" onclick="tab('resumo',this)">Resumo</button>
+    <button class="tab-btn" onclick="tab('tam',this)">TAM/SAM/SOM</button>
+    <button class="tab-btn" onclick="tab('competitors',this)">Concorrentes</button>
+    <button class="tab-btn" onclick="tab('solutions',this)">SoluÃ§Ãµes</button>
+    <button class="tab-btn" onclick="tab('jtbd',this)">JTBD</button>
+    <button class="tab-btn" onclick="tab('differentials',this)">Diferenciais</button>
+    <button class="tab-btn" onclick="tab('icp',this)">ICP & Persona</button>
+    <button class="tab-btn" onclick="tab('fourps',this)">4Ps</button>
+    <button class="tab-btn" onclick="tab('puv',this)">PUV</button>
+    <button class="tab-btn" onclick="tab('media',this)">MÃ­dia Paga</button>
+    <button class="tab-btn" onclick="tab('creatives',this)">Criativos</button>
+    <button class="tab-btn" onclick="tab('cro',this)">CRO</button>
+    <button class="tab-btn" onclick="tab('copy',this)">Copywriting</button>
+  </div>
+
+  <!-- TAB: RESUMO -->
+  <div id="panel-resumo" class="tab-panel active">
+    <div class="exec-grid" id="exec-grid"></div>
+    <div class="grid-2" style="margin-bottom:20px">
+      <div class="card">
+        <div class="card-title">Principal Oportunidade</div>
+        <div id="exec-opp" class="highlight green" style="font-size:14px"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Principal Risco</div>
+        <div id="exec-risk" class="highlight" style="font-size:14px"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Ãngulo V4 â Como Abordar Este Prospect</div>
+      <div id="exec-angle" style="font-size:15px;line-height:1.7;color:var(--text2)"></div>
+    </div>
+  </div>
+
+  <!-- TAB: TAM -->
+  <div id="panel-tam" class="tab-panel">
+    <div class="grid-3" style="margin-bottom:20px" id="tam-vals"></div>
+    <div class="grid-2" id="tam-details"></div>
+  </div>
+
+  <!-- TAB: COMPETITORS -->
+  <div id="panel-competitors" class="tab-panel">
+    <div id="comp-list" style="display:flex;flex-direction:column;gap:16px"></div>
+  </div>
+
+  <!-- TAB: SOLUTIONS -->
+  <div id="panel-solutions" class="tab-panel">
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">Insight do CenÃ¡rio</div>
+      <div id="sol-insight" style="font-size:14px;color:var(--text2);line-height:1.7"></div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">SoluÃ§Ãµes Diretas</div>
+        <div id="sol-direct"></div>
+      </div>
+      <div class="card">
+        <div class="card-title amber">SoluÃ§Ãµes Indiretas</div>
+        <div id="sol-indirect"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: JTBD -->
+  <div id="panel-jtbd" class="tab-panel">
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">Job Principal</div>
+      <div id="jtbd-main" style="font-size:18px;font-family:var(--font-title);font-weight:700;line-height:1.4"></div>
+    </div>
+    <div class="grid-3" id="jtbd-lists"></div>
+  </div>
+
+  <!-- TAB: DIFFERENTIALS -->
+  <div id="panel-differentials" class="tab-panel">
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">Vs. Mercado</div>
+      <div id="diff-vs" style="font-size:14px;color:var(--text2);line-height:1.7"></div>
+    </div>
+    <div class="grid-2" style="margin-bottom:20px" id="diff-lists"></div>
+    <div class="card">
+      <div class="card-title">Oportunidade para a V4</div>
+      <div id="diff-v4" class="highlight green" style="font-size:14px"></div>
+    </div>
+  </div>
+
+  <!-- TAB: ICP & PERSONA -->
+  <div id="panel-icp" class="tab-panel">
+    <div class="grid-2" style="margin-bottom:20px" id="icp-company"></div>
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">Persona Principal</div>
+      <div id="icp-persona"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">ComitÃª de Compra</div>
+      <table class="tbl" id="icp-committee-table">
+        <thead><tr><th>Cargo</th><th>Tipo</th><th>Principal PreocupaÃ§Ã£o</th></tr></thead>
+        <tbody id="icp-committee"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB: 4PS -->
+  <div id="panel-fourps" class="tab-panel">
+    <div class="grid-2" id="fourps-grid"></div>
+  </div>
+
+  <!-- TAB: PUV -->
+  <div id="panel-puv" class="tab-panel">
+    <div class="card" style="margin-bottom:20px;text-align:center;padding:40px">
+      <div class="puv-statement" id="puv-statement"></div>
+      <div class="puv-tagline" id="puv-tagline"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Justificativa</div>
+      <div id="puv-rationale" style="font-size:14px;color:var(--text2);line-height:1.7"></div>
+    </div>
+  </div>
+
+  <!-- TAB: MÃDIA PAGA -->
+  <div id="panel-media" class="tab-panel">
+    <div class="grid-4" style="margin-bottom:20px" id="media-stats"></div>
+    <div class="grid-2" style="margin-bottom:20px" id="media-channels"></div>
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">RecomendaÃ§Ã£o</div>
+      <div id="media-rec" style="font-size:14px;color:var(--text2);line-height:1.7"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Plano de AÃ§Ã£o</div>
+      <div id="media-plan"></div>
+    </div>
+  </div>
+
+  <!-- TAB: CRIATIVOS -->
+  <div id="panel-creatives" class="tab-panel">
+    <div class="grid-4" style="margin-bottom:20px" id="creatives-stats"></div>
+    <div class="grid-2" style="margin-bottom:20px" id="creatives-analysis"></div>
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">Gaps Identificados</div>
+      <div id="creatives-gaps"></div>
+    </div>
+    <div class="card">
+      <div class="card-title green">RecomendaÃ§Ãµes</div>
+      <div id="creatives-recs"></div>
+    </div>
+  </div>
+
+  <!-- TAB: CRO -->
+  <div id="panel-cro" class="tab-panel">
+    <div class="grid-2" style="margin-bottom:20px" id="cro-analysis"></div>
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">Gaps na Jornada</div>
+      <div id="cro-gaps"></div>
+    </div>
+    <div class="card">
+      <div class="card-title red" style="--color:var(--red)">CorreÃ§Ãµes PrioritÃ¡rias</div>
+      <div id="cro-fixes"></div>
+    </div>
+  </div>
+
+  <!-- TAB: COPY -->
+  <div id="panel-copy" class="tab-panel">
+    <div class="grid-3" style="margin-bottom:20px" id="copy-tones"></div>
+    <div class="card">
+      <div class="card-title">AnÃ¡lise de Gaps de Narrativa</div>
+      <div class="gap-hdr">
+        <span>DimensÃ£o</span><span>Atual</span><span>Ideal</span><span>Severidade</span>
+      </div>
+      <div id="copy-gaps"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ââââââââââââââââââââââââââââââââââââââââââ
+// STATE
+// ââââââââââââââââââââââââââââââââââââââââââ
+let _data = null;
+let _timers = [];
+
+// ââââââââââââââââââââââââââââââââââââââââââ
+// HELPERS
+// ââââââââââââââââââââââââââââââââââââââââââ
+function s(v) {
+  if (v === null || v === undefined || v === '') return 'â';
+  return String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function arr(v) { return Array.isArray(v) ? v : []; }
+function showToast(msg, dur=2500) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), dur);
+}
+function setScreen(id) {
+  document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+function tab(id, el) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('panel-' + id).classList.add('active');
+}
+function badgePresence(v) {
+  const map = { forte: 'green', mÃ©dia: 'amber', fraca: 'red' };
+  return `<span class="badge ${map[v]||'neutral'}">${s(v)}</span>`;
+}
+function badgeSeverity(v) {
+  const map = { alto: 'red', mÃ©dio: 'amber', baixo: 'green' };
+  return `<span class="badge ${map[v]||'neutral'}">${s(v)}</span>`;
+}
+function badgeType(v) {
+  const map = { decisor: 'red', influenciador: 'amber', 'usuÃ¡rio': 'neutral' };
+  return `<span class="badge ${map[v]||'neutral'}">${s(v)}</span>`;
+}
+function checkList(items, cls='') {
+  return `<ul class="check-list ${cls}">${arr(items).map(i=>`<li>${s(i)}</li>`).join('')}</ul>`;
+}
+function actionList(items) {
+  return arr(items).map((it,i) =>
+    `<div class="action-item"><span class="action-num">${String(i+1).padStart(2,'0')}</span><span style="color:var(--text2);font-size:14px">${s(it)}</span></div>`
+  ).join('');
+}
+
+// ââââââââââââââââââââââââââââââââââââââââââ
+// LOADING ANIMATION
+// ââââââââââââââââââââââââââââââââââââââââââ
+const STEPS_TIMING = [0, 800, 3000, 5500, 8500, 12000, 16000];
+const STEPS_PCT    = [14,  28,   44,   60,   75,    88,   100];
+
+function setStep(n, pct) {
+  for (let i = 0; i < 7; i++) {
+    const el = document.getElementById('st-' + i);
+    if (!el) continue;
+    el.className = 'step' + (i < n ? ' done' : i === n ? ' active' : '');
+  }
+  const fill = document.getElementById('prog-fill');
+  const pctEl = document.getElementById('prog-pct');
+  if (fill) fill.style.width = pct + '%';
+  if (pctEl) pctEl.textContent = pct + '%';
+}
+
+function startTimers() {
+  _timers = [];
+  setStep(0, STEPS_PCT[0]);
+  for (let i = 1; i < 7; i++) {
+    const idx = i, p = STEPS_PCT[i];
+    _timers.push(setTimeout(() => setStep(idx, p), STEPS_TIMING[i]));
+  }
+}
+function clearTimers() { _timers.forEach(t => clearTimeout(t)); _timers = []; }
+
+// ââââââââââââââââââââââââââââââââââââââââââ
+// MAIN FLOW
+// ââââââââââââââââââââââââââââââââââââââââââ
+async function go() {
+  const url = document.getElementById('inp-url').value.trim();
+  const spiced = document.getElementById('inp-spiced').value.trim();
+  const competitors = document.getElementById('inp-competitors').value.trim();
+
+  if (!url) { showToast('â  Informe a URL do site'); return; }
+  if (!spiced) { showToast('â  Cole o diagnÃ³stico SPICED'); return; }
+
+  setScreen('loading');
+  startTimers();
+
+  try {
+    const resp = await fetch('/api/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url, spiced, competitors })
+    });
+    const json = await resp.json();
+
+    clearTimers();
+
+    if (!resp.ok || !json.success) {
+      setScreen('input');
+      showToast('Erro: ' + (json.error || 'Falha na anÃ¡lise'), 5000);
+      return;
+    }
+
+    setStep(6, 100);
+    _data = json.data;
+
+    setTimeout(() => {
+      render(_data);
+      setScreen('report');
+    }, 350);
+
+  } catch (err) {
+    clearTimers();
+    setScreen('input');
+    showToast('Erro de conexÃ£o: ' + err.message, 5000);
+  }
+}
+
+function newAnalysis() {
+  _data = null;
+  setScreen('input');
+  // Reset tabs
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===0));
+  document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===0));
+}
+
+function exportRpt() {
+  if (!_data) return;
+  navigator.clipboard.writeText(JSON.stringify(_data, null, 2))
+    .then(() => showToast('â JSON copiado para a Ã¡rea de transferÃªncia'))
+    .catch(() => showToast('Falha ao copiar'));
+}
+
+// ââââââââââââââââââââââââââââââââââââââââââ
+// RENDER
+// ââââââââââââââââââââââââââââââââââââââââââ
+function render(d) {
+  // Header
+  document.getElementById('rpt-company').textContent = d.company || 'â';
+  document.getElementById('rpt-segment').textContent = d.segment || 'â';
+  const hdrRight = document.getElementById('hdr-right');
+  hdrRight.innerHTML = `<div class="hdr-report-info"><span class="hdr-company">${s(d.company)}</span><span class="hdr-segment">${s(d.segment)}</span></div>`;
+
+  renderExec(d.exec || {});
+  renderTam(d.tam || {});
+  renderCompetitors(d.competitors || []);
+  renderSolutions(d.solutions || {});
+  renderJtbd(d.jtbd || {});
+  renderDifferentials(d.differentials || {});
+  renderIcp(d.icp || {});
+  renderFourPs(d.four_ps || {});
+  renderPuv(d.puv || {});
+  renderMedia(d.media || {});
+  renderCreatives(d.creatives || {});
+  renderCro(d.cro || {});
+  renderCopy(d.copy_narrative || {});
+}
+
+// ââ EXEC SUMMARY ââ
+function renderExec(e) {
+  const scoreColor = parseFloat(e.score) >= 7 ? 'green' : parseFloat(e.score) >= 5 ? 'amber' : 'red';
+  const maturityBadge = { 'Alta': 'green', 'MÃ©dia': 'amber', 'Baixa': 'red' }[e.digital_maturity] || 'neutral';
+
+  document.getElementById('exec-grid').innerHTML = `
+    <div class="exec-card">
+      <div class="exec-card-val red">${s(e.tam)}</div>
+      <div class="exec-card-label">TAM Estimado</div>
+    </div>
+    <div class="exec-card" style="display:flex;align-items:center;gap:14px">
+      <div class="score-ring">${s(e.score)}</div>
+      <div><div class="exec-card-val">Score V4</div><div class="exec-card-label">Oportunidade /10</div></div>
+    </div>
+    <div class="exec-card">
+      <div style="margin-bottom:6px"><span class="badge ${maturityBadge}">${s(e.digital_maturity)}</span></div>
+      <div class="exec-card-label">Maturidade Digital</div>
+    </div>
+    <div class="exec-card">
+      <div class="exec-card-val amber">${s(e.competitors_count)}</div>
+      <div class="exec-card-label">Concorrentes Mapeados</div>
+    </div>
+    <div class="exec-card" style="grid-column:1/-1">
+      <div class="exec-card-label" style="margin-bottom:6px">Status de MÃ­dia</div>
+      <div style="font-size:14px;color:var(--text2)">${s(e.media_status)}</div>
+    </div>
+  `;
+  document.getElementById('exec-opp').textContent = e.main_opportunity || 'â';
+  document.getElementById('exec-risk').textContent = e.main_risk || 'â';
+  document.getElementById('exec-angle').textContent = e.v4_angle || 'â';
+}
+
+// ââ TAM ââ
+function renderTam(t) {
+  document.getElementById('tam-vals').innerHTML = `
+    <div class="card">
+      <div class="stat-val red">${s(t.tam_val)}</div>
+      <div class="stat-label">TAM â Total Addressable Market</div>
+      <div class="stat-desc">${s(t.tam_desc)}</div>
+    </div>
+    <div class="card">
+      <div class="stat-val amber">${s(t.sam_val)}</div>
+      <div class="stat-label">SAM â Serviceable Addressable Market</div>
+      <div class="stat-desc">${s(t.sam_desc)}</div>
+    </div>
+    <div class="card">
+      <div class="stat-val green">${s(t.som_val)}</div>
+      <div class="stat-label">SOM â Serviceable Obtainable Market</div>
+      <div class="stat-desc">${s(t.som_desc)}</div>
+    </div>
+  `;
+  document.getElementById('tam-details').innerHTML = `
+    <div class="card">
+      <div class="card-title green">Crescimento do Mercado</div>
+      <div class="stat-val green" style="font-size:32px">${s(t.growth)}</div>
+      <div class="stat-label" style="margin-bottom:12px">ao ano</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.6">${s(t.growth_driver)}</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Metodologia</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.7">${s(t.methodology)}</div>
+    </div>
+  `;
+}
+
+// ââ COMPETITORS ââ
+function renderCompetitors(comps) {
+  if (!comps.length) {
+    document.getElementById('comp-list').innerHTML = '<div class="card"><p style="color:var(--text3)">Nenhum concorrente identificado.</p></div>';
+    return;
+  }
+  document.getElementById('comp-list').innerHTML = comps.map(c => `
+    <div class="comp-card">
+      <div class="comp-header">
+        <div>
+          <div class="comp-name">${s(c.name)}</div>
+          <div class="comp-url">${s(c.url)}</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          ${badgePresence(c.presence)}
+          <span class="badge ${c.ads_active ? 'green' : 'red'}">${c.ads_active ? 'Ads Ativo' : 'Sem Ads'}</span>
+        </div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><span class="comp-key">Posicionamento</span><span class="comp-val">${s(c.positioning)}</span></div>
+        <div class="comp-row"><span class="comp-key">Tom</span><span class="comp-val">${s(c.tone)}</span></div>
+        <div class="comp-row"><span class="comp-key">TrÃ¡fego Est.</span><span class="comp-val">${s(c.traffic_est)}</span></div>
+        <div class="comp-row"><span class="comp-key">Canais</span><div>${arr(c.channels).map(ch=>`<span class="chip">${s(ch)}</span>`).join('')}</div></div>
+        <div class="grid-2" style="gap:12px;margin-top:4px">
+          <div>
+            <div class="comp-key" style="margin-bottom:8px">ForÃ§as</div>
+            ${checkList(c.strengths,'green')}
+          </div>
+          <div>
+            <div class="comp-key" style="margin-bottom:8px">Fraquezas</div>
+            ${checkList(c.weaknesses)}
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ââ SOLUTIONS ââ
+function renderSolutions(sol) {
+  document.getElementById('sol-insight').textContent = sol.insight || 'â';
+  const solCard = (items) => arr(items).map(it => `
+    <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)">
+      <div style="font-family:var(--font-title);font-weight:700;font-size:14px;margin-bottom:4px">${s(it.name)}</div>
+      <div style="font-size:13px;color:var(--text2);margin-bottom:6px">${s(it.desc)}</div>
+      <span class="badge red">LimitaÃ§Ã£o: ${s(it.limit)}</span>
+    </div>
+  `).join('');
+  document.getElementById('sol-direct').innerHTML = solCard(sol.direct);
+  document.getElementById('sol-indirect').innerHTML = solCard(sol.indirect);
+}
+
+// ââ JTBD ââ
+function renderJtbd(j) {
+  document.getElementById('jtbd-main').textContent = j.main_job || 'â';
+  document.getElementById('jtbd-lists').innerHTML = `
+    <div class="card">
+      <div class="card-title">Funcional</div>
+      ${checkList(j.functional)}
+    </div>
+    <div class="card">
+      <div class="card-title amber">Emocional</div>
+      ${checkList(j.emotional,'amber')}
+    </div>
+    <div class="card">
+      <div class="card-title green">Social</div>
+      ${checkList(j.social,'green')}
+    </div>
+  `;
+}
+
+// ââ DIFFERENTIALS ââ
+function renderDifferentials(d) {
+  document.getElementById('diff-vs').textContent = d.vs_market || 'â';
+  document.getElementById('diff-lists').innerHTML = `
+    <div class="card">
+      <div class="card-title green">Diferenciais Reais</div>
+      ${checkList(d.real,'green')}
+    </div>
+    <div class="card">
+      <div class="card-title amber">Diferenciais Potenciais</div>
+      ${checkList(d.potential,'amber')}
+    </div>
+  `;
+  document.getElementById('diff-v4').textContent = d.v4_opportunity || 'â';
+}
+
+// ââ ICP & PERSONA ââ
+function renderIcp(icp) {
+  document.getElementById('icp-company').innerHTML = `
+    <div class="card">
+      <div class="card-title">Perfil da Empresa Ideal</div>
+      <table class="tbl">
+        <tbody>
+          <tr><td style="color:var(--text3);width:130px">Tamanho</td><td>${s(icp.company_size)}</td></tr>
+          <tr><td style="color:var(--text3)">Segmento</td><td>${s(icp.segment)}</td></tr>
+          <tr><td style="color:var(--text3)">Faturamento</td><td>${s(icp.revenue)}</td></tr>
+          <tr><td style="color:var(--text3)">Geografia</td><td>${s(icp.geography)}</td></tr>
+          <tr><td style="color:var(--text3)">Gatilho</td><td>${s(icp.trigger)}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-title amber">Canais Preferidos</div>
+      <div style="margin-top:8px">${arr(icp.persona_channels).map(c=>`<span class="chip">${s(c)}</span>`).join('')}</div>
+    </div>
+  `;
+
+  const initials = (icp.persona_name || 'P').split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+  document.getElementById('icp-persona').innerHTML = `
+    <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
+      <div class="persona-avatar">${initials}</div>
+      <div style="flex:1;min-width:200px">
+        <div style="font-family:var(--font-title);font-weight:700;font-size:18px;margin-bottom:2px">${s(icp.persona_name)}</div>
+        <div style="color:var(--text3);font-size:13px;margin-bottom:12px">${s(icp.persona_role)} Â· ${s(icp.persona_age)}</div>
+        <div class="grid-3" style="gap:16px;margin-top:8px">
+          <div><div class="comp-key" style="margin-bottom:8px">Dores</div>${checkList(icp.persona_pains)}</div>
+          <div><div class="comp-key" style="margin-bottom:8px">Objetivos</div>${checkList(icp.persona_goals,'green')}</div>
+          <div><div class="comp-key" style="margin-bottom:8px">Canais</div>${checkList(icp.persona_channels,'amber')}</div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const tbody = document.getElementById('icp-committee');
+  tbody.innerHTML = arr(icp.committee).map(c => `
+    <tr><td><strong>${s(c.role)}</strong></td><td>${badgeType(c.type)}</td><td>${s(c.concern)}</td></tr>
+  `).join('');
+}
+
+// ââ 4PS ââ
+function renderFourPs(ps) {
+  const labels = { product: 'Produto', price: 'PreÃ§o', place: 'PraÃ§a', promotion: 'PromoÃ§Ã£o' };
+  const colors = { product: '', price: 'amber', place: 'green', promotion: '' };
+  document.getElementById('fourps-grid').innerHTML = Object.entries(ps).map(([k,v]) => `
+    <div class="card">
+      <div class="card-title ${colors[k]||''}">${labels[k]||k}</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.7">${s(v)}</div>
+    </div>
+  `).join('');
+}
+
+// ââ PUV ââ
+function renderPuv(p) {
+  document.getElementById('puv-statement').textContent = p.statement || 'â';
+  document.getElementById('puv-tagline').textContent = p.tagline ? `"${p.tagline}"` : 'â';
+  document.getElementById('puv-rationale').textContent = p.rationale || 'â';
+}
+
+// ââ MEDIA ââ
+function renderMedia(m) {
+  const statusBadge = m.status === 'investe' ? 'green' : 'red';
+  document.getElementById('media-stats').innerHTML = `
+    <div class="card">
+      <span class="badge ${statusBadge}" style="font-size:11px">${m.status === 'investe' ? 'Investe em MÃ­dia' : 'NÃ£o Investe'}</span>
+      <div class="stat-label" style="margin-top:8px">Status Geral</div>
+    </div>
+    <div class="card">
+      <span class="badge ${m.meta_active ? 'green':'red'}">${m.meta_active ? 'Ativo':'Inativo'}</span>
+      <div class="stat-label" style="margin-top:8px">Meta Ads</div>
+      <div style="font-size:12px;color:var(--text3);margin-top:4px">${s(m.meta_spend_est)}</div>
+    </div>
+    <div class="card">
+      <span class="badge ${m.google_active ? 'green':'red'}">${m.google_active ? 'Ativo':'Inativo'}</span>
+      <div class="stat-label" style="margin-top:8px">Google Ads</div>
+    </div>
+    <div class="card">
+      <div class="stat-val amber" style="font-size:16px">${s(m.benchmark_cpl)}</div>
+      <div class="stat-label">Benchmark CPL</div>
+      <div style="font-size:11px;color:var(--text3);margin-top:4px">CPA: ${s(m.benchmark_cpa)}</div>
+    </div>
+  `;
+  document.getElementById('media-channels').innerHTML = `
+    <div class="card">
+      <div class="card-title">Meta Ads</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px">${s(m.meta_analysis)}</div>
+      <div class="comp-key" style="margin-bottom:6px">AnÃ¡lise Concorrentes</div>
+      <div style="font-size:13px;color:var(--text2)">${s(m.competitors_media)}</div>
+    </div>
+    <div class="card">
+      <div class="card-title amber">Google Ads</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px">${s(m.google_analysis)}</div>
+      <div class="comp-key" style="margin-bottom:6px">Keywords Alvo</div>
+      <div>${arr(m.google_keywords).map(k=>`<span class="chip">${s(k)}</span>`).join('')}</div>
+    </div>
+  `;
+  document.getElementById('media-rec').textContent = m.recommendation || 'â';
+  document.getElementById('media-plan').innerHTML = actionList(m.action_plan);
+}
+
+// ââ CREATIVES ââ
+function renderCreatives(c) {
+  const qMap = { baixa:'red', mÃ©dia:'amber', alta:'green' };
+  const eMap = { baixo:'red', mÃ©dio:'amber', alto:'green' };
+  document.getElementById('creatives-stats').innerHTML = `
+    <div class="card">
+      <span class="badge ${qMap[c.quality_level]||'neutral'}">${s(c.quality_level)}</span>
+      <div class="stat-label" style="margin-top:8px">Qualidade Geral</div>
+    </div>
+    <div class="card">
+      <span class="badge ${eMap[c.social_engagement]||'neutral'}">${s(c.social_engagement)}</span>
+      <div class="stat-label" style="margin-top:8px">Engajamento</div>
+    </div>
+    <div class="card">
+      <div style="font-size:14px;font-weight:600">${s(c.social_freq)}</div>
+      <div class="stat-label" style="margin-top:4px">FrequÃªncia Posts</div>
+    </div>
+    <div class="card">
+      <div style="font-size:13px;color:var(--text2);line-height:1.5">${s(c.bio_analysis)}</div>
+      <div class="stat-label" style="margin-top:6px">Bio / Perfil</div>
+    </div>
+  `;
+  document.getElementById('creatives-analysis').innerHTML = `
+    <div class="card">
+      <div class="card-title">Visual</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.7">${s(c.visual_analysis)}</div>
+    </div>
+    <div class="card">
+      <div class="card-title amber">Copy</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.7">${s(c.copy_analysis)}</div>
+    </div>
+  `;
+  document.getElementById('creatives-gaps').innerHTML = checkList(c.gaps);
+  document.getElementById('creatives-recs').innerHTML = actionList(c.recommendations);
+}
+
+// ââ CRO ââ
+function renderCro(c) {
+  document.getElementById('cro-analysis').innerHTML = `
+    <div class="card">
+      <div class="card-title">Estrutura & UX</div>
+      <div style="font-size:14px;color:var(--text2);margin-bottom:12px;line-height:1.7">${s(c.site_structure)}</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.7">${s(c.ux_analysis)}</div>
+    </div>
+    <div class="card">
+      <div class="card-title amber">Copy & CTAs</div>
+      <div style="font-size:14px;color:var(--text2);margin-bottom:12px;line-height:1.7">${s(c.copy_clarity)}</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.7">${s(c.cta_analysis)}</div>
+    </div>
+  `;
+  document.getElementById('cro-gaps').innerHTML = checkList(c.journey_gaps);
+  document.getElementById('cro-fixes').innerHTML = actionList(c.priority_fixes);
+}
+
+// ââ COPY NARRATIVE ââ
+function renderCopy(cn) {
+  document.getElementById('copy-tones').innerHTML = `
+    <div class="card">
+      <div class="card-title">Tom Atual</div>
+      <div style="font-size:15px;font-family:var(--font-title);font-weight:700">${s(cn.current_tone)}</div>
+    </div>
+    <div class="card">
+      <div class="card-title green">Tom Ideal</div>
+      <div style="font-size:15px;font-family:var(--font-title);font-weight:700;color:var(--green)">${s(cn.ideal_tone)}</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Gap Principal</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.6">${s(cn.main_gap)}</div>
+    </div>
+  `;
+  document.getElementById('copy-gaps').innerHTML = arr(cn.gaps).nmap(g => `
+    <div class="gap-row">
+      <span class="gap-dim">${s(g.dimension)}</span>
+      <span style="color:var(--text3)">${s(g.current)}</span>
+      <span style="color:var(--green)">${s(g.ideal)}</span>
+      <span>${badgeSeverity(g.severity)}</span>
+    </div>
+  `).join('');
+}
+</script>
+ </body>
+ </html>
